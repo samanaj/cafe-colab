@@ -1,0 +1,100 @@
+{% extends 'base/base.html' %}
+
+{% block page_content %}
+<form method="POST" role ="form" class="form-inline">
+    {% csrf_token %}
+    <div class="col-xl-12 col-md-12 mb-12" >
+        {% if obj %}
+        <div class="card border-left-warning shadow h-100 py-2" action="{% url 'usuarios:user_update' obj.pk %}">
+        {% else %}
+        <div class="card border-left-success shadow h-100 py-2" action="{% url 'usuarios:user_add' %}">
+        {% endif %}
+            <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        {% if obj %} Editar {% else %} Nuevo {% endif %} usuario
+                    </div>
+                    <div class="dropdown-divider"></div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-6">{{form.username.label}}</div>
+                            <div class="col-md-6">{{form.username}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-6">{{form.password1.label}}</div>
+                            <div class="col-md-6">{{form.password1}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-6">{{form.password2.label}}</div>
+                            <div class="col-md-6">{{form.password2}}</div>
+                        </div>
+                    </div>                  
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-6">{{form.nombres.label}}</div>
+                            <div class="col-md-6">{{form.nombres}}</div>
+                        </div>
+                    
+                        <div class="col-md-4">
+                            <div class="col-md-6">{{form.apellidos.label}}</div>
+                            <div class="col-md-10">{{form.apellidos}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-6">{{form.email.label}}</div>
+                            <div class="col-md-6">{{form.email}}</div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-6">{{form.genero.label}}</div>
+                            <div class="col-md-6">{{form.genero}}</div>
+                        </div>                    
+                        <div class="col-md-2">
+                            <div class="col-md-6">{{form.is_active.label}}</div>
+                            <div class="col-md-6">{{form.is_active}}</div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="col-md-6">{{form.is_staff.label}}</div>
+                            <div class="col-md-6">{{form.is_staff}}</div>
+                        </div>
+                    
+                        <div class="col-md-2">
+                            <div class="col-md-10">{{form.is_superuser.label}}</div>
+                            <div class="col-md-10">{{form.is_superuser}}</div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="col-md-6">{{form.groups.label}}</div>
+                            <div class="col-md-6">{{form.groups}}</div>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider" text-aling="text-left"></div>
+                    <div class="row no-gutters align-items-left">
+                        <div class="col-md-10" >
+                            <div class="col-md-6" >{{form.user_permissions.label}}</div>
+                            <div class="col-md-25">{{form.user_permissions}}</div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
+                            <a href="{% url 'usuarios:user_list' %}" class="btn btn-success"><span class="fa fa-undo"></span>Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
+{% block js_page %}
+{% endblock %}
