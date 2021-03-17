@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Listado de Compras</title>
+    <title>Reporte de Ventas</title>
     <link rel="stylesheet" href="{% static 'base/css/recibo.css' %}">
     <style type="text/css">
         @page {
@@ -15,7 +15,8 @@
             }
     </style>
 </head>
-<body onload="window.print();window.close()" class="receipt">
+<body onload="window.print();" class="receipt">
+<!-- <body onload="window.print(); window.close()" class="receipt"> -->
     <div class="col-md-1 col-sm-1 col-xs-1 col-xl-1">
         <center>
             <b class="text-center">Cafeteria De los Escudos</b><br> 
@@ -79,9 +80,9 @@
         <small class="pie">
             <br><br>
             <center>
-                Creada por:  {{enc.uc}} - Fecha:  {{enc.fc}}
+                Creada por: {{enc.uc}} - Fecha: {{enc.fc}}
                 <br>
-                <i>&copy; &reg; <b>Rolando Tubac</b><br> - tubacrolando@gmail.com</i> 
+                <i>&copy; &reg; <b>Rolando Tubac</b><br> - tubacrolando@gmail.com</i>
             </center>
         </small>
         </div>

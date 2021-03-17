@@ -110,11 +110,11 @@ class FacturaView(SinPrivilegios, generic.ListView):
         user = self.request.user        
         qs = super().get_queryset()
         for q in qs:
-            print(q.uc,q.id)
+            m=q
         if not user.is_superuser:
             qs = qs.filter(uc=user)
         for q in qs:
-            print(q.uc,q.id)            
+            a = q            
         return qs
 
 
@@ -192,7 +192,7 @@ def facturas(request,id=None):
         s_total = request.POST.get("sub_total_detalle")
         descuento = request.POST.get("descuento_detalle")
         total = request.POST.get("total_detalle")
-
+        # queryset conde codigo = codigo
         prod = Producto.objects.get(codigo=codigo)
         det = FacturaDet(
             factura = enc,
