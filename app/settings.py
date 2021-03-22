@@ -93,10 +93,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',       
-        'NAME': 'dbcolab',
+        'NAME': 'cafe-colab',
         'HOST': 'localhost',
-        'USER': 'adminrol',
-        'PASSWORD': 'admin456',
+        'USER': 'postgres',
+        'PASSWORD': 'KaCrrX#2',
         'PORT': 5432
     }
 }
