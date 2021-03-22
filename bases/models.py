@@ -19,9 +19,7 @@ class ClaseModelo(models.Model):
 class ClaseModelo2(models.Model):
     estado = models.BooleanField(default=True)
     fc = models.DateTimeField(auto_now_add=True)
-    fm = models.DateTimeField(auto_now=True)
-    # uc = models.ForeignKey(User, on_delete=models.CASCADE)
-    # um = models.IntegerField(blank=True,null=True)
+    fm = models.DateTimeField(auto_now=True)   
     uc = UserForeignKey(auto_user_add=True,related_name='+')
     um = UserForeignKey(auto_user=True,related_name='+')
 
@@ -36,17 +34,6 @@ class BaseModel3(models.Model):
 
     class Meta:
         abstract = True
-
-
-
-# class ClaseModelo3(models.Model):
-#     fc = models.DateTimeField(auto_now_add=True)
-#     fm = models.DateTimeField(auto_now=True)
-#     uc = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, related_name='%(app_label)s_%(class)s_creation')
-#     um = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, related_name='%(app_label)s_%(class)s_updated')
-
-#     class Meta:
-#         abstract=True
 
 class Idioma(models.Model):
     nombre = models.CharField(max_length=50)

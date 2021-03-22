@@ -452,7 +452,7 @@
         <div class="modal-body">Al dar click en el botón Salir, cerrará la sesión para <mark> {{ user.username}} </mark>  </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="{% url 'bases:logout' %}">Salir</a>
+          <a class="btn btn-primary" href="{% url 'bases:salir' %}">Salir</a>
         </div>
       </div>
     </div>
@@ -542,6 +542,7 @@
 
   </script>
   {% endblock%}
+  
   {% block js_page %} {% endblock %}
 </body>
 

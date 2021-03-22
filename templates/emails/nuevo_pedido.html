@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gracias por tu pedido</title>
+    {% load cart_tags %}
+    <style>
+        #pedido {
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #pedido td, #pedido th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #pedido tr:nth-child(even){background-color: #f2f2f2;}
+
+        #pedido tr:hover {background-color: #ddd;}
+
+        #pedido th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #1b1e21;
+          color: white;
+        }
+
+        #linea_Pedido {
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #linea_Pedido td, #linea_Pedido th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #linea_Pedido tr:nth-child(even){background-color: #f2f2f2;}
+
+        #linea_Pedido tr:hover {background-color: #ddd;}
+
+        #linea_Pedido th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #721c24;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+    <p>Hola {{ username }},</p>
+    <p>Muchas gracias por tu pedido, a continuación adjuntamos toda la información del mismo.</p>
+    <h2>Información del pedido</h2>
+    <table id="pedido">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Total</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ pedido.id }}</td>
+                <td>{{ pedido.total|money_format:"Q" }}</td>
+                <td>{{ pedido.creado|date:'d/m/Y H:i' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    <h2>Líneas del pedido</h2>
+    <table id="linea_Pedido">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio/u</th>
+                <th>Precio total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lineaPedido in lineaPedido %}
+               <tr class="text-center">
+                    <td>{{ lineaPedido.product.nombre }}</td>
+                    <td>{{ lineaPedido.cantidad }}</td>
+                    <td>{{ lineaPedido.product.precio|money_format:"Q" }}</td>
+                    <td>{{ lineaPedido.product.precio|multiply:lineaPedido.cantidad|money_format:"Q" }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -5,7 +5,7 @@ from django.contrib import messages
 
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required, permission_required
-
+from carrito.cart import Cart
 
 from .models import Categoria,SubCategoria, Marca, UnidadMedida, \
     Producto
@@ -291,3 +291,12 @@ def producto_inactivar(request, id):
         return redirect("inv:producto_list")
 
     return render(request,template_name,contexto)
+
+# Create your views here.
+# @login_required(login_url="/bases/login/")
+def listado_productos(request):
+    cart = Cart(request)   
+    products = Producto.objects.all()
+    return render(request, "inv/listado.html", {
+        "products": products
+    })  

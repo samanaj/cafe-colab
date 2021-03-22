@@ -81,7 +81,10 @@ class Producto(ClaseModelo):
         unique=True
     )
     codigo_barra = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='productos/', blank=True)
+    extracto = models.TextField(max_length=200, verbose_name='Extracto')
+    detalle = models.TextField(max_length=1000, verbose_name='Información del producto')
     precio = models.FloatField(default=0)
     existencia = models.IntegerField(default=0)
     ultima_compra = models.DateField(null=True, blank=True)
@@ -91,10 +94,10 @@ class Producto(ClaseModelo):
     subcategoria = models.ForeignKey(SubCategoria, on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{}'.format(self.descripcion)
+        return '{}'.format(self.nombre)
     
     def save(self):
-        self.descripcion = self.descripcion.upper()
+        self.nombre = self.nombre.upper()
         super(Producto,self).save()
     
     class Meta:

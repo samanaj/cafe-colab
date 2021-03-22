@@ -15,15 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
-    path('',include(('bases.urls','bases'), namespace='bases')),
-    path('inv/',include(('inv.urls','inv'), namespace='inv')),
+    path('bases/', include(('bases.urls','bases'), namespace='bases')),
+    path('', include(('inv.urls','inv'), namespace='inv')),
     path('cmp/', include(('cmp.urls', 'cmp'), namespace='cmp')),
     path('fac/', include(('fac.urls', 'fac'), namespace='fac')),
     path('usuarios/', include(('usuarios.urls', 'usuarios'), namespace='usuarios')),
     path('api/', include(('api.urls', 'api'), namespace='api')),
         
     path('admin/', admin.site.urls),
-]
+
+    #carrito
+    path('cart/', include(('carrito.urls', 'carrito'), namespace='carrito')),
+    path('pedidos/', include(('pedidos.urls', 'pedidos'), namespace='pedidos')),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

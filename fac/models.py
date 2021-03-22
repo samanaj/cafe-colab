@@ -117,6 +117,3 @@ def detalle_fac_guardar(sender,instance,**kwargs):
         cantidad = int(prod.existencia) - int(instance.cantidad)
         prod.existencia = cantidad
         prod.save()
-
-
-
