@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 #settings de producción
+from pathlib import Path
 import os
+from django.contrib.messages import constants as message_constants
 #para configurar secretamente información sensible pip install python-decouple
 from decouple import config
 #para producción
@@ -18,7 +20,6 @@ import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -43,14 +44,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #
     'bases',
     'inv',
     'cmp',
     'fac',
     'usuarios',
+    #carrito
+    'carrito',
+    'pedidos',
+    #
     'django_userforeignkey',
     'rest_framework',
-    
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +76,7 @@ ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',        
         'DIRS': [os.path.join(BASE_DIR,'templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -79,6 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'carrito.context_processor.cart_total_amount',
             ],
         },
     },
@@ -135,6 +142,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+#envio de email pedido
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '6363999a39a0db'
+EMAIL_HOST_PASSWORD = '7b27eb4d1d384e'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -147,8 +163,25 @@ STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/login/'
+# LOGIN_REDIRECT_URL = 'bases:home'
+# LOGOUT_REDIRECT_URL = 'bases:login'
+
 #PARA TRABAJAR LA BASE DE DATOS
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
+#para el carrito
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# clases para los mensajes flash de bootstrap
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'debug',
+    message_constants.INFO: 'info',
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+    message_constants.ERROR: 'danger',
+}
+
+# carrito
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

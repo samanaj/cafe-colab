@@ -1,0 +1,38 @@
+{% extends 'layouts/tienda.html' %}
+
+{% load cart_tags %}
+
+{% block title %}Tienda{% endblock %}
+
+{% block content %}
+    Total: {{ cart_total_amount|money_format:"Q" }}
+    <div class="row">
+        <div class="col-9">
+            <div class="row">
+                <!-- products es la variable que estamos enviando desde la vista -->
+                {% for product in products %}
+                    <div class="col-md-3 col-sm-12 col-lg-4">
+                        <div class="card" style="width: 100%">
+                            <img src="{{ product.image.url }}" style="width:100%;" class="card-img-top" alt="{{ product.nombre }}" />
+                            <div class="card-body">
+                                <h5 class="card-title"> {{ product.nombre }}</h5>
+                                <p class="card-text">{{ product.extracto }}</p>
+                                <p class="card-text">Q{{ product.precio }}</p>
+                            </div>
+                            <div class='card-footer text-center'>
+                                <a href="{% url 'carrito:add_product' product.id %}" class="btn btn-success">
+                                    Añadir al carrito
+                                </a>                               
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- sidebar a la derecha para mostrar el carrito -->
+        <div class="col-3">
+            {% include 'carrito/widget.html' %}
+    
+        </div>
+    </div>
+{% endblock %}

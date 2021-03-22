@@ -75,11 +75,11 @@ class UMForm(forms.ModelForm):
 class ProductoForm(forms.ModelForm):
     class Meta:
         model=Producto
-        fields=['codigo','codigo_barra','descripcion','estado', \
+        fields=['codigo','codigo_barra','nombre','image','extracto', 'detalle', 'estado', \
                 'precio','existencia','ultima_compra',
                 'marca','subcategoria','unidad_medida']
         exclude = ['um','fm','uc','fc']
-        widget={'descripcion': forms.TextInput()}
+        widget={'nombre': forms.TextInput()}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
