@@ -15,23 +15,11 @@ class Cliente(ClaseModelo):
         (NAT,'Natural'),
         (JUR,'Jurídica')
     ]
-    nombres = models.CharField(
-        max_length=100
-    )
-    apellidos = models.CharField(
-        max_length=100
-    )
-    celular = models.CharField(
-        max_length=20,
-        null=True,
-        blank=True
-    )
-    tipo=models.CharField(
-        max_length=10,
-        choices=TIPO_CLIENTE,
-        default=NAT
-    )
-
+    nombres = models.CharField(max_length=100)    
+    apellidos = models.CharField(max_length=100)   
+    celular = models.CharField(max_length=20, null=True, blank=True)
+    tipo=models.CharField(max_length=10, choices=TIPO_CLIENTE, default=NAT)
+    
     def __str__(self):
         return '{} {}'.format(self.apellidos,self.nombres)
 

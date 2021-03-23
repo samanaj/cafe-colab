@@ -19,12 +19,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for lineaPedido in pedido.lineaPedido_set.all %}
+                        
+                        {% for linea_pedido in pedido.lineapedido_set.all %}
                            <tr class="text-center">
-                                <td>{{ lineaPedido.product.nombre }}</td>
-                                <td>{{ lineaPedido.quantity }}</td>
-                                <td>{{ lineaPedido.product.precio|money_format:"Q" }}</td>
-                                <td>{{ lineaPedido.product.precio|multiply:lineaPedido.quantity|money_format:"Q" }}</td>
+                                <td>{{ linea_pedido.producto.nombre }}</td>
+                                <td>{{ linea_pedido.cantidad }}</td>
+                                <td>{{ linea_pedido.producto.precio|money_format:"Q" }}</td>
+                                <td>{{ linea_pedido.producto.precio|multiply:linea_pedido.cantidad|money_format:"Q" }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -32,9 +33,11 @@
                         <tr>
                             <td>&nbsp;</td>
                             <td>&nbsp;</td>
-                            <td>&nbsp;</td>
                             <td class="text-center">
-                                {{ order.total|money_format:"Q" }}
+                                Total:
+                            </td>
+                            <td class="text-center">
+                                {{ pedido.total|money_format:"Q" }}
                             </td>
                         </tr>
                     </tfoot>
