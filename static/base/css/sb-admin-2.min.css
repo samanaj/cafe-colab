@@ -9,6 +9,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
 :root {
     --blue: #4e73df;
     --indigo: #6610f2;
@@ -23,8 +24,8 @@
     --white: #fff;
     --gray: #858796;
     --gray-dark: #5a5c69;
-    --primary: #4e73df;
-    --secondary: #858796;
+    --primary: #b86f52;
+    --secondary: #83c5be;
     --success: #1cc88a;
     --info: #36b9cc;
     --warning: #f6c23e;
@@ -36,8 +37,9 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+    /* --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace */
+    
 }
 
 *,
@@ -48,7 +50,7 @@
 }
 
 html {
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent
@@ -69,7 +71,7 @@ section {
 
 body {
     margin: 0;
-    font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -96,12 +98,14 @@ h4,
 h5,
 h6 {
     margin-top: 0;
-    margin-bottom: .5rem
+    margin-bottom: .5rem;
+    color: black
 }
 
 p {
     margin-top: 0;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
+    color: black
 }
 
 abbr[data-original-title],
@@ -174,13 +178,13 @@ sup {
 }
 
 a {
-    color: #4e73df;
+    color: #000000;
     text-decoration: none;
     background-color: transparent
 }
 
 a:hover {
-    color: #224abe;
+    color: #ff0000;
     text-decoration: underline
 }
 
@@ -621,8 +625,21 @@ pre code {
     padding-right: .75rem;
     padding-left: .75rem;
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto;
 }
+
+.container-fluid .container{
+    background: linear-gradient(0deg, rgb(184, 111, 82, 0.9) 5%, rgba(184, 111, 82, 0.1) 80%), url("/media/productos/D1.jpg");
+    background-size: cover;
+    background-position-y: 50%;
+    height: 75vh;
+}
+
+/* #dashboard_img{
+    background: linear-gradient(0deg, rgb(184, 111, 82, 0.9) 5%, rgba(184, 111, 82, 0.1) 80%), url("/media/productos/D1.jpg");
+    background-size: cover;
+    background-position-y: 50%;
+} */
 
 .row {
     display: -webkit-box;
@@ -718,7 +735,8 @@ pre code {
     position: relative;
     width: 100%;
     padding-right: .75rem;
-    padding-left: .75rem
+    padding-left: .75rem;
+    margin-bottom: 20px;
 }
 
 .col {
@@ -1930,7 +1948,11 @@ pre code {
 .table th {
     padding: .75rem;
     vertical-align: top;
-    border-top: 1px solid #e3e6f0
+    border-top: 1px solid #e3e6f0;  
+}
+
+#total_pedido{
+    font-weight: bold;
 }
 
 .table thead th {
@@ -5299,7 +5321,7 @@ input[type=submit].btn-block {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     background-clip: border-box;
     border: 1px solid #e3e6f0;
     border-radius: .35rem
@@ -5324,7 +5346,7 @@ input[type=submit].btn-block {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    padding: 1.25rem
+    padding: 1.25rem;
 }
 
 .card-title {
@@ -11791,9 +11813,9 @@ a:focus {
 }
 
 .bg-gradient-primary {
-    background-color: #4e73df;
+    background-color: #b86f52;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
-    background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+    background-image: linear-gradient(180deg, #b86f52 10%, #b85252 100%);
     background-size: cover
 }
 
@@ -12266,7 +12288,7 @@ a:focus {
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active {
-    color: #4e73df;
+    color: #83c5be;
     font-weight: 700
 }
 

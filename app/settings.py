@@ -145,8 +145,8 @@ USE_TZ = True
 #envio de email pedido
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '6363999a39a0db'
-EMAIL_HOST_PASSWORD = '7b27eb4d1d384e'
+EMAIL_HOST_USER = '9f8eb3161deecc'
+EMAIL_HOST_PASSWORD = '14649bc78a335f'
 EMAIL_PORT = '2525'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
