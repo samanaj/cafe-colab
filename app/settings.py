@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'django_userforeignkey',
     'rest_framework',
     'crispy_forms',
+    #home
+    'homepage',
 ]
 
 MIDDLEWARE = [

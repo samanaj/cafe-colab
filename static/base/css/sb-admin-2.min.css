@@ -37,9 +37,9 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
-    /* --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace */
-    
+    /* --font-family-sans-serif: "Poppins", var(--font-family-sans-serif) Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", 'Poppins',sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+     */
 }
 
 *,
@@ -207,7 +207,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: 'Poppins', sans-serif;
     font-size: 1em
 }
 
@@ -267,7 +267,7 @@ optgroup,
 select,
 textarea {
     margin: 0;
-    font-family: inherit;
+    font-family: 'Poppins', sans-serif;
     font-size: inherit;
     line-height: inherit
 }
@@ -622,10 +622,11 @@ pre code {
 
 .container-fluid {
     width: 100%;
-    padding-right: .75rem;
+    height: 75vh;
+    /* padding-right: .75rem;
     padding-left: .75rem;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: auto; */
 }
 
 .container-fluid .container{
@@ -635,11 +636,11 @@ pre code {
     height: 75vh;
 }
 
-/* #dashboard_img{
-    background: linear-gradient(0deg, rgb(184, 111, 82, 0.9) 5%, rgba(184, 111, 82, 0.1) 80%), url("/media/productos/D1.jpg");
-    background-size: cover;
-    background-position-y: 50%;
-} */
+.container-fluid #nosotros{
+    background-color: var(--secondary);
+    margin-top: 10px;
+    padding-top: 40px;
+}
 
 .row {
     display: -webkit-box;
@@ -7153,13 +7154,38 @@ a.close.disabled {
     overflow: hidden
 }
 
+.carousel-item img{ 
+    object-fit:cover;
+    width: 100%;
+    height: 85vh;
+    padding: 0;
+}
+
+.carousel-inner .carousel-item #bake1{
+    background: linear-gradient(0deg, rgb(184, 111, 82, 0.9) 5%, rgba(184, 111, 82, 0.1) 80%), url("/media/img/bake1.jpg");
+    background-size: cover;
+    background-position-y: 50%;
+}
+
+.carousel-inner .carousel-item #bake2{
+    background: linear-gradient(0deg, rgb(184, 111, 82, 0.9) 5%, rgba(184, 111, 82, 0.1) 80%), url("/media/img/bak2.jpg");
+    background-size: cover;
+    background-position-y: 50%;
+}
+
+.carousel-inner .carousel-item #bake3{
+    background: linear-gradient(0deg, rgb(184, 111, 82, 0.9) 5%, rgba(184, 111, 82, 0.1) 80%), url("/media/img/bake3.jpg");
+    background-size: cover;
+    background-position-y: 50%;
+}
+
 .carousel-inner::after {
     display: block;
     clear: both;
     content: ""
 }
 
-.carousel-item {
+/* .carousel-item {
     position: relative;
     display: none;
     float: left;
@@ -7171,7 +7197,7 @@ a.close.disabled {
     transition: -webkit-transform .6s ease-in-out;
     transition: transform .6s ease-in-out;
     transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out
-}
+} */
 
 @media (prefers-reduced-motion:reduce) {
     .carousel-item {
@@ -7349,13 +7375,15 @@ a.close.disabled {
 .carousel-caption {
     position: absolute;
     right: 15%;
-    bottom: 20px;
+    bottom: 5vh;
     left: 15%;
     z-index: 10;
     padding-top: 20px;
-    padding-bottom: 20px;
-    color: #fff;
-    text-align: center
+    padding-bottom: 5vh;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 @-webkit-keyframes spinner-border {
@@ -11713,11 +11741,11 @@ a:focus {
     flex: 1 0 auto
 }
 
-.container,
+/* .container,
 .container-fluid {
     padding-left: 1.5rem;
     padding-right: 1.5rem
-}
+} */
 
 .scroll-to-top {
     position: fixed;
@@ -13258,7 +13286,7 @@ form.user .btn-user {
 }
 
 footer.sticky-footer {
-    padding: 2rem 0;
+    padding: 1rem 0;
     -ms-flex-negative: 0;
     flex-shrink: 0
 }

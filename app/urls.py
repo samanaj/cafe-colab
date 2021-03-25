@@ -20,8 +20,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
+    path('', include(('homepage.urls','homepage'), namespace='homepage')),
     path('bases/', include(('bases.urls','bases'), namespace='bases')),
-    path('', include(('inv.urls','inv'), namespace='inv')),
+    path('inv/', include(('inv.urls','inv'), namespace='inv')),
     path('cmp/', include(('cmp.urls', 'cmp'), namespace='cmp')),
     path('fac/', include(('fac.urls', 'fac'), namespace='fac')),
     path('usuarios/', include(('usuarios.urls', 'usuarios'), namespace='usuarios')),
