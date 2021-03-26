@@ -15,9 +15,9 @@ from carrito.cart import Cart
 def process_pedido(request):
     pedido = Pedido.objects.create(user=request.user, completado=True)
     cart = Cart(request)
-    linea_Pedido = list()
+    linea_pedido = list()
     for key, value in cart.cart.items():
-        linea_Pedido.append(
+        linea_pedido.append(
             lineaPedido(
                 producto_id=key,
                 cantidad=value["cantidad"],
@@ -26,11 +26,11 @@ def process_pedido(request):
             )
         )
 
-    lineaPedido.objects.bulk_create(linea_Pedido)
+    lineaPedido.objects.bulk_create(linea_pedido)
 
     send_order_email(
         pedido=pedido,
-        linea_Pedido=linea_Pedido,
+        linea_pedido=linea_pedido,
         username=request.user.username,
         user_email=request.user.email
     )
@@ -45,7 +45,7 @@ def send_order_email(**kwargs):
     subject = "Gracias por tu pedido"
     html_message = render_to_string("emails/nuevo_pedido.html", {
         "pedido": kwargs.get("pedido"),
-        "linea_Pedido": kwargs.get("linea_Pedido"),
+        "linea_pedido": kwargs.get("linea_pedido"),
         "username": kwargs.get("username")
     })
     plain_message = strip_tags(html_message)

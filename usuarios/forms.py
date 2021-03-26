@@ -37,7 +37,7 @@ class UserRegisterForm(UserCreationForm):
         user = super().save()
         self.save_m2m()
         return user
-
+    
 class UpdatePasswordForm(forms.Form):
     password1 = forms.CharField(
         label='Contraseña',

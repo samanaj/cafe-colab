@@ -24,7 +24,7 @@
                                     <td>{{ pedido.id }}</td>
                                     <td>{{ pedido.total|money_format:"Q" }}</td>
                                     <td>{{ pedido.creado|date:'d/m/Y H:i' }}</td>
-                                    <td><a href="{% url "order_detail" order.id %}" class="btn btn-info btn-sm">Ver detalle</a></td>
+                                    <td><a href="{% url 'pedidos:pedidoDetail' pedido.id %}" class="btn btn-info btn-sm">Ver detalle</a></td>
                                 </tr>
                             {% empty %}
                                 <tr>

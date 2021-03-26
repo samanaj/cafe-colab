@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %} - COLAB-EY</title>
+    <title>{% block title %} Tienda {% endblock %} - COLAB-EY</title>
 
     {% load static %}
     <link href="{% static 'staticcart/css/bootstrap.min.css' %}" rel="stylesheet"/>
@@ -57,6 +57,9 @@
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pedidos:pedidoList' %}">Mis pedidos</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Hola {{ user.username }}</a>
                     </li>
                     <li class="nav-item">
@@ -67,7 +70,7 @@
                         <a class="nav-link" href="{% url 'bases:login' %}">Acceder</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'usuarios:user_add' %}">Registro</a>
+                        <a class="nav-link" href="{% url 'fac:cliente_new' %}">Registro</a>
                     </li>
                 {% endif %}
             </ul>

@@ -28,22 +28,22 @@
           color: white;
         }
 
-        #linea_Pedido {
+        #linea_pedido {
           font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
           border-collapse: collapse;
           width: 100%;
         }
 
-        #linea_Pedido td, #linea_Pedido th {
+        #linea_pedido td, #linea_Pedido th {
           border: 1px solid #ddd;
           padding: 8px;
         }
 
-        #linea_Pedido tr:nth-child(even){background-color: #f2f2f2;}
+        #linea_pedido tr:nth-child(even){background-color: #f2f2f2;}
 
-        #linea_Pedido tr:hover {background-color: #ddd;}
+        #linea_pedido tr:hover {background-color: #ddd;}
 
-        #linea_Pedido th {
+        #linea_pedido th {
           padding-top: 12px;
           padding-bottom: 12px;
           text-align: left;
@@ -74,7 +74,7 @@
     </table>
     <hr />
     <h2>Líneas del pedido</h2>
-    <table id="linea_Pedido">
+    <table id="linea_pedido">
         <thead>
             <tr>
                 <th>Producto</th>
@@ -84,12 +84,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for lineaPedido in lineaPedido %}
+            {% for predido in linea_pedido %}
                <tr class="text-center">
-                    <td>{{ lineaPedido.product.nombre }}</td>
-                    <td>{{ lineaPedido.cantidad }}</td>
-                    <td>{{ lineaPedido.product.precio|money_format:"Q" }}</td>
-                    <td>{{ lineaPedido.product.precio|multiply:lineaPedido.cantidad|money_format:"Q" }}</td>
+                    <td>{{ predido.producto.nombre }}</td>
+                    <td>{{ predido.cantidad }}</td>
+                    <td>{{ predido.producto.precio|money_format:"Q" }}</td>
+                    <td>{{ predido.producto.precio|multiply:predido.cantidad|money_format:"Q" }}</td>
                 </tr>
             {% endfor %}
         </tbody>
