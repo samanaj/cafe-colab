@@ -2,7 +2,7 @@
 
 {% load cart_tags %}
 
-{% block title %}Tienda{% endblock %}
+{% block title %}Inicio{% endblock %}
 
 {% block content %}
 <div class="container-fluid">
@@ -47,9 +47,41 @@
         </div>
     </div>
 
+    <section class="ofertas" id="ofertas">
+         <div class="container-fluid">
+            <h2 class="text-center">¡Nuestros preferidos!</h2>
+           <div class="row justify-content-center">
+               <div class="card" style="width: 18rem;" id="card1">
+                 <img src="/media/productos/D1.jpg" class="card-img-top" alt="...">
+                 <div class="card-body">
+                   <h5 class="card-title">Pancakes</h5>
+                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   <a href="#" class="btn btn-success">Comprar</a>
+                 </div>
+               </div> 
+     
+                 <div class="card" style="width: 18rem;" id="card2">
+                   <img src="/media/productos/EA1.jpg" class="card-img-top" alt="...">
+                   <div class="card-body">
+                     <h5 class="card-title">Brochetas</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                     <a href="#" class="btn btn-success">Comprar</a>
+                   </div>
+                 </div>
+               <div class="card" style="width: 18rem;" id="card3">
+                 <img src="/media/productos/A1.jpg" class="card-img-top" alt="...">
+                 <div class="card-body">
+                   <h5 class="card-title">Spaggheti</h5>
+                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   <a href="#" class="btn btn-success">Comprar</a>
+                 </div>
+               </div>
+         </div>
+    </section>
+
     <section class="container-fluid" id="nosotros">
             <div class="row no-gutter">
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-7 ">
                     <h2>Nosotros</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil adipisci nobis at suscipit, dolorum provident assumenda deleniti, modi animi obcaecati rerum consequuntur beatae ex perferendis ipsam voluptate quam consequatur officia.</p>
                     <h2>Valores</h2>
@@ -57,9 +89,9 @@
                     <h2>Misión</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, dolorem?</p>
                 </div>
-                <div class="col-12 col-xl-5 text-center">
-                  <img src="/media/img/shield-alt-solid.svg" class="logo h-25" alt="logo">
-                  <p>Los Escudos</p>
+                <div class="col-12 col-xl-5 text-center" style="padding-top: 5%;">
+                  <img height="150px" width="auto" src="/media/img/shield-alt-solid.svg" alt="logo">
+                  <h3>Los Escudos</h3>
                 </div>
             </div>
     </section>
