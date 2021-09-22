@@ -3,7 +3,7 @@ asgiref==3.3.1
 astroid==2.5.1
 colorama==0.4.4
 dj-database-url==0.5.0
-Django==3.1.7
+Django==3.1.13
 django-crum==0.7.9
 django-rest-framework==0.1.0
 django-userforeignkey==0.3.0
